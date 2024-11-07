@@ -83,7 +83,7 @@ def make_protein_segments_figure(pids, bar_names=None, height=500, width=1000):
 
 
     # read in a pre-computed umap of the embedding (1024 was umap to 3D, which will be converted to RGB)
-    data = pd.read_csv("data/umap_3D.tsv", sep="\t")
+    data = pd.read_csv("human_protein_segments_umap_3D.tsv", sep="\t")
     data.columns = ["X", "Y", "Z", "KEY"]
 
     # convert the keys to PID and position, then convert data to RGB
