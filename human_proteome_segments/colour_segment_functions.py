@@ -74,9 +74,15 @@ def make_protein_segments_figure(data_path, pids, bar_names=None, height=500, wi
 
 
     # check inputs
+    # if pids is not a list of pids
+    if isinstance(pids, str):
+        pids = [pids]
+        print("Warning, protein ids were not given as a list. \nIf you plan to include multiple protein ids, please format like: pids = ['pid1','pid2',...,'pidN']")
+    # if there are no names for the bar chart use the pids
     if bar_names==None:
         bar_names=pids
-    elif len(pids) != len(bar_names):
+    # check that there are an equal number of pids and names
+    if len(pids) != len(bar_names):
         print("Please enter an equal number of UniProt protein IDs (pids) and names given for the bar chart (bar_names).\nWhere pids[i] corresponds to bar_names[i].")
         return 0
 
